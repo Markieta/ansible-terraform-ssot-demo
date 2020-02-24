@@ -63,3 +63,13 @@ Apply Terraform:
 ```bash
 terraform apply
 ```
+
+## Ansible
+
+### Dependencies
+
+Install the required `google-auth` Python library. In Fedora:
+
+```bash
+sudo dnf install python3-google-auth
+```
