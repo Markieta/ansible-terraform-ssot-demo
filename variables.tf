@@ -29,7 +29,7 @@ variable "vm_zone" {
 }
 
 variable "vm_tags" {
-  default = "dev"
+  default = ["dev"]
   description = "Tags to be attached to the VM instance."
 }
 
