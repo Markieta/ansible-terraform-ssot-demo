@@ -1,0 +1,7 @@
+---
+- hosts: nodes
+  gather_facts: no
+  become: true
+  roles:
+    - role: ps1
+...
