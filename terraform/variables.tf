@@ -42,3 +42,23 @@ variable "vm_network_interface_network" {
   default = "default"
   description = "Network name to be attached to VM instance's interface."
 }
+
+variable "tower_curl" {
+  default = "curl -f -k -H 'Content-Type: application/json' -XPOST --user "
+  description = "Curl command and options to request job launch on Tower."
+}
+
+variable "tower_username" {
+  type = string
+  description = "Tower username to launch job."
+}
+
+variable "tower_password" {
+  type = string
+  description = "Tower password to launch job."
+}
+
+variable "tower_launch_url" {
+  default = "https://tower/api/v2/job_templates/7/launch/"
+  description = "URL to Tower API to launch specific job."
+}

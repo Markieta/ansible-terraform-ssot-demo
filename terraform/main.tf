@@ -21,3 +21,11 @@ resource "google_compute_instance" "default" {
     network = var.vm_network_interface_network
   }
 }
+
+resource "null_resource" "tower" {
+  depends_on = [google_compute_instance.default]
+
+    provisioner "local-exec" {
+      command = "${var.tower_curl} ${var.tower_username}:${var.tower_password} ${var.tower_launch_url}"
+    }
+}
