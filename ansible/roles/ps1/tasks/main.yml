@@ -1,5 +1,7 @@
 ---
-- name: Debug Test
-  debug:
-    msg: "Hello {{ name }}"
+- name: Update PS1 Bash Prompt
+  lineinfile:
+    path: "{{ bashrc_path }}"
+    regexp: "{{ PS1_regex }}"
+    line: "{{ PS1_line }}"
 ...
