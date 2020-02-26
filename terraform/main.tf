@@ -16,6 +16,7 @@ resource "google_compute_instance" "default" {
   tags = var.vm_tags
 
   metadata = {
+    user = var.gce_ssh_user,
     ssh-keys = "${var.gce_ssh_user}:${file(var.gce_ssh_pub_key_file)}"
   }
 
