@@ -1,0 +1,7 @@
+---
+banner_src: ../files/banner"
+banner_dest: /etc/banner
+banner_owner: root
+banner_group: root
+banner_mode: '0744'
+...

@@ -1,3 +1,9 @@
 ---
-
+- name: Copy motd banner script to {{ banner_dest }}
+  copy:
+    src: "{{ banner_src }}"
+    dest: "{{ banner_dest }}"
+    owner: "{{ banner_owner }}"
+    group: "{{ banner_group }}"
+    mode: "{{ banner_mode }}"
 ...
