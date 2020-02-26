@@ -1,8 +1,16 @@
 ---
-- name: Copy motd banner script to {{ banner_dest }}
+- name: Copy motd banner script to {{ banner_script_dest }}
   copy:
-    src: "{{ banner_src }}"
-    dest: "{{ banner_dest }}"
+    src: "{{ banner_script_src }}"
+    dest: "{{ banner_script_dest }}"
+    owner: "{{ banner_owner }}"
+    group: "{{ banner_group }}"
+    mode: "{{ banner_mode }}"
+
+- name: Copy motd banner calling script to {{ banner_caller_dest }} that calls {{ banner_script_dest }}
+  template:
+    src: "{{ banner_caller_src }}"
+    dest: "{{ banner_caller_dest }}"
     owner: "{{ banner_owner }}"
     group: "{{ banner_group }}"
     mode: "{{ banner_mode }}"
