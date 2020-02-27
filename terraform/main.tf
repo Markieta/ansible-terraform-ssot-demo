@@ -37,7 +37,7 @@ resource "google_compute_instance" "default" {
 resource "local_file" "ansible_inventory" {
   count = var.tower_password == "null" ? 1 : 0
   content  = templatefile("${path.module}/templates/hosts.tmpl", { node = google_compute_address.default.address } )
-  filename = "../ansible/inventories/terraform2ansible/hosts"
+  filename = "../ansible/inventories/templated/hosts"
 }
 
 resource "null_resource" "tower" {

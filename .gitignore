@@ -32,4 +32,4 @@ override.tf.json
 .vscode/
 
 # Ignore dynamically generated inventory
-ansible/inventories/terraform2ansible/hosts
+ansible/inventories/templated/hosts

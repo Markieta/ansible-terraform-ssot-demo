@@ -1,5 +1,5 @@
 variable "credentials" {
-  default = "~/.gcp/account.json"
+  default = "/home/markieta/.gcp/account.json"
   description = "File pathname to GCP credentials."
 }
 
@@ -76,4 +76,9 @@ variable "tower_password" {
 variable "tower_launch_url" {
   default = "https://tower/api/v2/job_templates/7/launch/"
   description = "URL to Tower API to launch specific job."
+}
+
+variable "initiator" {
+  default = true
+  description = "Whether Terraform is initiating this run."
 }

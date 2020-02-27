@@ -3,5 +3,5 @@ plugin: gcp_compute
 projects:
   - ansible-terraform-ssot-demo
 auth_kind: serviceaccount
-service_account_file: ~/.gcp/account.json
+service_account_file: /home/markieta/.gcp/account.json
 ...
