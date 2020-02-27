@@ -90,7 +90,7 @@ variable "tower_password" {
 }
 
 variable "tower_launch_url" {
-  default = "https://tower/api/v2/job_templates/7/launch/"
+  default = "https://tower/api/v2/workflow_job_templates/14/launch/"
   description = "URL to Tower API to launch specific job."
 }
 
