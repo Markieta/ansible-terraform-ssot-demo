@@ -44,8 +44,8 @@ variable "gce_ssh_user" {
 }
 
 variable "gce_ssh_pub_key_file" {
-  default = "/home/markieta/.ssh/arctiqchris.pub"
-  description = "Path to SSH public key to copy to new VM."
+  default = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDB29rHJa7vx32XJZ3BwyIvZ4b5hsqOYfkRIPeeu/oJE/+tymkpPfpEAV+7dB8OLfhsb+JQAju1jb/CYSijeZo5wu4FlmWmo2VIX9WRGHjEl4LpX6oatPqqXVmtdPN03EvQ0hutTIn1j9+YSA+0+Ke8MI3peuiAlgfbW+bTQNZ9K2fhH0Sg5oujrJXUHjsDB3S+js4CjCu6kViJT+5geX5S74FRo9Mu8eHfDX2dUxa9+2TaL9XSNWqY0OrJIZX/AVKtC21oodZ30BQD3y80HT1k7ARrN3ySM95yGsa7KcniqEDSpX2+5h6YcT5JIYuS/tdeNKs4pGFMXUkw9krGygF9VH2gETuWSuZSMHMu9ZJ5Wq7saYrHeuFQ6gdi3+zBsaHOKOC55Lu1ndiwq210oit9r913sy9ISBGJCO5p74tQfZcvaVwUOot9a90Bh4LZo0U+0sLacS4m5P2UKhoy3tzg2tB6tX7YF0jlKF35fQeMa3goWJU4cGS+6WH6YK41CVs= markieta@x1c"
+  description = "SSH public key to copy to new VM."
 }
 
 variable "vm_boot_disk_image" {
