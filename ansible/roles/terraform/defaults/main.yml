@@ -2,5 +2,5 @@
 project_dir: ../terraform
 binary_path: /usr/local/bin/terraform
 variables:
-  initiator: false
+  initiator: "ansible"
 ...

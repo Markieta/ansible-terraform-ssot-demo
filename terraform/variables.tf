@@ -58,6 +58,22 @@ variable "vm_network_interface_network" {
   description = "Network name to be attached to VM instance's interface."
 }
 
+variable "ansible_inventory_dest" {
+  default = "../ansible/inventories/templated/hosts"
+  description = "Destination for Terraform to output templated inventory file."
+}
+
+variable "ansible_command" {
+  default = "ANSIBLE_CONFIG='../ansible/ansible.cfg' ansible-playbook -i "
+  description = "Ansible-playbook command and option to read inventory."
+}
+
+variable "ansible_playbook" {
+  default = "../ansible/prompt.yml"
+  description = "Path to Ansible playbook."
+}
+
+
 variable "tower_curl" {
   default = "curl -f -k -H 'Content-Type: application/json' -XPOST --user "
   description = "Curl command and options to request job launch on Tower."
@@ -79,6 +95,6 @@ variable "tower_launch_url" {
 }
 
 variable "initiator" {
-  default = true
-  description = "Whether Terraform is initiating this run."
+  default = "terraform"
+  description = "Application that is initiating this run."
 }

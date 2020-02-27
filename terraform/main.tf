@@ -16,7 +16,6 @@ resource "google_compute_instance" "default" {
   tags = var.vm_tags
 
   metadata = {
-    user = var.gce_ssh_user,
     ssh-keys = "${var.gce_ssh_user}:${file(var.gce_ssh_pub_key_file)}"
   }
 
@@ -37,10 +36,19 @@ resource "google_compute_instance" "default" {
 resource "local_file" "ansible_inventory" {
   count = var.tower_password == "null" ? 1 : 0
   content  = templatefile("${path.module}/templates/hosts.tmpl", { node = google_compute_address.default.address } )
-  filename = "../ansible/inventories/templated/hosts"
+  filename = var.ansible_inventory_dest
 }
 
-resource "null_resource" "tower" {
+resource "null_resource" "ansible_launcher" {
+  count = var.initiator == "terraform" ? 1 : 0
+  depends_on = [google_compute_instance.default]
+
+    provisioner "local-exec" {
+      command = "${var.ansible_command} ${var.ansible_inventory_dest} ${var.ansible_playbook}"
+    }
+}
+
+resource "null_resource" "tower_launcher" {
   count = var.tower_password == "null" ? 0 : 1
   depends_on = [google_compute_instance.default]
 
