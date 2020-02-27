@@ -40,7 +40,7 @@ resource "local_file" "ansible_inventory" {
 }
 
 resource "null_resource" "ansible_launcher" {
-  count = var.initiator == "terraform" ? 1 : 0
+  count = var.initiator == "terraform" && var.tower_password == "null" ? 1 : 0
   depends_on = [google_compute_instance.default]
 
     provisioner "local-exec" {
