@@ -34,10 +34,17 @@ resource "google_compute_instance" "default" {
   }
 }
 
-#resource "null_resource" "tower" {
-#  depends_on = [google_compute_instance.default]
-#
-#    provisioner "local-exec" {
-#      command = "${var.tower_curl} ${var.tower_username}:${var.tower_password} ${var.tower_launch_url}"
-#    }
-#}
+resource "local_file" "ansible_inventory" {
+  count = var.tower_password == "null" ? 1 : 0
+  content  = templatefile("${path.module}/templates/hosts.tmpl", { node = google_compute_address.default.address } )
+  filename = "../ansible/inventories/terraform2ansible/hosts"
+}
+
+resource "null_resource" "tower" {
+  count = var.tower_password == "null" ? 0 : 1
+  depends_on = [google_compute_instance.default]
+
+    provisioner "local-exec" {
+      command = "${var.tower_curl} ${var.tower_username}:${var.tower_password} ${var.tower_launch_url}"
+    }
+}

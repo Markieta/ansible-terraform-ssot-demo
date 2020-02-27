@@ -30,3 +30,6 @@ override.tf.json
 
 # Ignore Visual Studio Code settings
 .vscode/
+
+# Ignore dynamically generated inventory
+ansible/inventories/terraform2ansible/hosts
